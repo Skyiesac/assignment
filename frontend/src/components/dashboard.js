@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/dashboard.css';
 
 const AuthForm = ({ isLogin }) => {
     const [username, setUsername] = useState('');

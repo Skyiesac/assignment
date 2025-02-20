@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from auth import auth_bp, jwt
 from config import Config
 from flask_cors import CORS
-
+from products import product_bp
 
 def create_app():
 
@@ -16,9 +16,8 @@ def create_app():
     migrate = Migrate(app, db)
     jwt.init_app(app)
 
-    from models import User
-
     app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(product_bp, url_prefix="/api")
 
     # Create tables
     with app.app_context():

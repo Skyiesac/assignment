@@ -1,10 +1,5 @@
 from flask import Blueprint, request, jsonify
-from flask_jwt_extended import (
-    JWTManager,
-    create_access_token,
-    jwt_required,
-    get_jwt_identity,
-)
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 from utils import check_strong_password
@@ -42,6 +37,8 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
+    print(f"User registered: {username}, {hashed_password}, {role}")
+
     return jsonify({"msg": "User registered successfully"}), 201
 
 
@@ -50,7 +47,7 @@ def login():
     data = request.get_json()
     username = data["username"]
     password = data["password"]
-    print(username, password)
+
     user = User.query.filter_by(username=username).first()
 
     if user and check_password_hash(user.password, password):
@@ -59,4 +56,5 @@ def login():
         )
         return jsonify(access_token=access_token), 200
 
+    print("Invalid credentials")
     return jsonify({"msg": "Invalid credentials"}), 401
