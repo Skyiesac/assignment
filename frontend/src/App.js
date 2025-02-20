@@ -1,26 +1,19 @@
-import React, { useState } from "react";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
-function App() {
-    const [message, setMessage] = useState("");
-    const [name, setName] = useState("");
-
-    const fetchData = () => {
-        fetch("http://127.0.0.1:5000/api")
-            .then(response => response.json())
-            .then(data => setMessage(data.message))
-            .catch(error => console.error("Error:", error));
-    };
-
+const App = () => {
     return (
-        <div>
-            <h1>React + Flask</h1>
-            <button onClick={fetchData}>Get Data</button>
-            <p>{message}</p>
-
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-         
-        </div>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+        </Router>
     );
-}
+};
 
 export default App;

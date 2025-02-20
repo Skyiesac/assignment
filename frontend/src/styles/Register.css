@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(https://img.freepik.com/premium-photo/online-shopping-mobile-phone_172660-107.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.auth-container {
+    position: absolute;
+    left: 8%; 
+    top: 30%;
+    background: rgba(255, 255, 255, 0.4); 
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    text-align: center;
+  
+}
+
+
+h2 {
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px; 
+    margin: 10px -10px; 
+    border: 2px solid #ccc; 
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+    display: block;
+    outline: none;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, select:focus {
+    border-color: #6a11cb;
+    box-shadow: 0px 0px 10px rgba(106, 17, 203, 0.3);
+    background: white;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #6a11cb, rgba(106, 17, 203, 0.3));
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0px 5px 15px rgba(106, 17, 203, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(90deg,rgba(106, 17, 203, 0.3), #6a11cb);
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(106, 17, 203, 0.4);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+}
